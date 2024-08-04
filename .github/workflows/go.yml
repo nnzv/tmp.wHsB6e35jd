@@ -1,4 +1,6 @@
 name: Go
+env:
+  APP_NAME: foo
 run-name: "${{ github.run_id }}: Workflow run by @${{ github.actor }}"
 on:
   push:
@@ -15,6 +17,6 @@ jobs:
       with:
         go-version: '1.20'
     - name: Build
-      run: go build -v main.go
+      run: go build -v -o ${APP_NAME} main.go
     - name: Test
       run: test -f main
