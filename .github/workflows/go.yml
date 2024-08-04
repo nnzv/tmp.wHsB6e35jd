@@ -1,5 +1,5 @@
 name: Go
-run-name: Workflow run by @${{ github.actor }}
+run-name: "$GITHUB_RUN_ID: Workflow run by @${{ github.actor }}"
 on:
   push:
     branches: [ "main" ]
