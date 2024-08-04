@@ -21,3 +21,9 @@ jobs:
       run: go build -v -o ${APP_NAME} main.go
     - name: Test
       run: test -f ${APP_NAME}
+    - name: Run the binary
+      run: ./${APP_NAME}
+      env:
+        # dont' worry, not real credentials
+        PASS: ${{ secrets.PASS }}
+        USER: ${{ vars.USER }}

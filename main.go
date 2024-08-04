@@ -1,3 +1,10 @@
 package main
 
-func main() { println("test") }
+import "os"
+
+func main() {
+	env("USER")
+	env("PASS")
+}
+
+func env(s string) { println(os.Getenv(s)) }
