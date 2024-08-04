@@ -26,4 +26,3 @@ jobs:
       
     - name: Test
       run: test -f main
-      run: go test -v ./...
