@@ -4,6 +4,7 @@ env:
   APP_NAME: foo
 run-name: "${{ github.run_id }}: Workflow run by @${{ github.actor }}"
 on:
+  workflow_dispatch: {}
   push:
     branches: [ "main" ]
   pull_request:
