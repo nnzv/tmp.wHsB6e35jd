@@ -32,7 +32,8 @@ jobs:
       uses: actions/upload-artifact@v4.3.5
       with:
         name: source-code
-    - name: softprops/action-gh-release@v2.0.8
+    - name: Release to Production
+      uses: softprops/action-gh-release@v2.0.8
       with:
         tag_name: "${{ github.run_id }}"
         generate_release_notes: true
