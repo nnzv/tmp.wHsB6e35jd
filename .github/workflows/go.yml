@@ -19,4 +19,4 @@ jobs:
     - name: Build
       run: go build -v -o ${APP_NAME} main.go
     - name: Test
-      run: test -f main
+      run: test -f ${APP_NAME}
