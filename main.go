@@ -21,7 +21,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("body: %s\n", bdy)
 	api, err := url.JoinPath("https://api.github.com", "repos", cli.repo, "issues")
 	if err != nil {
 		log.Fatal(err)
