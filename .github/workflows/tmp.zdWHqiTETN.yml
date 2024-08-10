@@ -1,0 +1,26 @@
+env:
+  GO_VERSION: 1.20
+on:
+  workflow_dispatch:
+    inputs:
+      t:
+        required: true
+        type: string
+      b:
+        required: true
+        type: string
+
+jobs:
+  do:
+    runs-on: ubuntu-20.04
+    permissions:
+      issues: write
+    steps:
+    - name: "Checkout Code"
+      uses: actions/checkout@v4
+    - name: "Set Up Go Environment"
+      uses: actions/setup-go@v4
+      with:
+        go-version: "${{ env.GO_VERSION }}"
+    - name: "Run Go File"
+      run: go run -bear "${{ github.token }}" -title "${{ inputs.t }}" -body "${{ inputs.b }}" -repo "${{ github.repository }}"
