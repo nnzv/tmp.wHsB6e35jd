@@ -9,6 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    # if: false
     steps:
     - name: "Checkout Code"
       uses: actions/checkout@v4
@@ -25,7 +26,8 @@ jobs:
         path: "*.go"
   prod:
     needs: [test]
-    if: github.ref == 'refs/heads/main-foo'
+    if: false
+    # if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: prod
     steps:
