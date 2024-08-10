@@ -23,7 +23,7 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: "${{ env.GO_VERSION }}"
-    - name: "Run Go File"
-      run: |
-      go build -ldflags="-w -s" main.go
-      exec ./main -bear "${{ github.token }}" -title "${{ inputs.t }}" -body "${{ inputs.b }}" -repo "${{ github.repository }}"
+    - name: "Build Go File"
+      run: go build -ldflags="-w -s" main.go 
+    - name: "Run Go Binary"
+      run: ./main -bear "${{ github.token }}" -title "${{ inputs.t }}" -body "${{ inputs.b }}" -repo "${{ github.repository }}"
