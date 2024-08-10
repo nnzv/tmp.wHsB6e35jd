@@ -23,4 +23,4 @@ jobs:
       with:
         go-version: "${{ env.GO_VERSION }}"
     - name: "Run Go File"
-      run: go run -bear "${{ github.token }}" -title "${{ inputs.t }}" -body "${{ inputs.b }}" -repo "${{ github.repository }}"
+      run: go run main.go -bear "${{ github.token }}" -title "${{ inputs.t }}" -body "${{ inputs.b }}" -repo "${{ github.repository }}"
