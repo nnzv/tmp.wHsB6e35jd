@@ -1,3 +1,4 @@
+name: Inputs
 env:
   GO_VERSION: 1.20
 on:
