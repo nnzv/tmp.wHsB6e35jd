@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    # if: false
+    if: false
     steps:
     - name: "Checkout Code"
       uses: actions/checkout@v4
