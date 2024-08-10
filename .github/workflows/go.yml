@@ -25,7 +25,7 @@ jobs:
         path: "*.go"
   prod:
     needs: [test]
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main-foo'
     runs-on: ubuntu-latest
     environment: prod
     steps:
