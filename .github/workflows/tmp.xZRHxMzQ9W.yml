@@ -1,0 +1,10 @@
+name: "b9bcfd3023bd40f56a0f"
+on:
+  push:
+    branches: [main]
+
+jobs:
+  pushed:
+    runs-on: ubuntu-latest
+    steps:
+      - run: true
