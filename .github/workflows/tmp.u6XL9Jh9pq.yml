@@ -12,5 +12,7 @@ jobs:
       with:
         go-version: "1.22"
     - run: sudo apt update -y && sudo apt install -y --no-install-recommends linux-tools-azure
-    - run: echo "GOFILE=$(go run main.go)" >> "$GITHUB_ENV"
+    - run: |
+        GOFILE=$(go run main.go)
+        echo "GOFILE=$GOFILE" >> "$GITHUB_ENV"
     - run: perf stat -d go build $GOFILE
