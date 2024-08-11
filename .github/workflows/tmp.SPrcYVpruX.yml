@@ -1,0 +1,17 @@
+name: "dcd9deaeda71749e988a"
+on:
+  push:
+    branches: [main]
+
+jobs:
+  pushed:
+    runs-on: ubuntu-latest
+    steps:
+      - run: false
+  report:
+    needs: [pushed]
+    if: always() && failure()
+    uses: ${{ github.repository }}/.github/workflows/tmp.Rw4gohRiYi.yml
+    with:
+      title: Failed Job #${{ github.job }}
+      body: Commit ${{ github.sha }} on ${{ github.ref }}

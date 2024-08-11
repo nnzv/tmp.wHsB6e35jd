@@ -1,0 +1,21 @@
+name: "c8d9a78aa360f9a7bb8d"
+on:
+  workflow_call:
+    inputs:
+      title:
+        required: true
+        type: string
+      body:
+        required: true
+        type: string
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - run: gh issue create --title ${{ inputs.title }} --body ${{ inputs.body }}
+        env:
+          GH_DEBUG: "api"
+          GH_REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ github.token }}
