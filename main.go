@@ -14,6 +14,7 @@ var rgx = `internal|vendor`
 
 func main() {
 	log.SetFlags(0)
+	log.SetOutput(os.Stdout)
 	pkgs, err := packages.Load(nil, "std")
 	if err != nil {
 		log.Println(err)
