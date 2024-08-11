@@ -1,8 +1,10 @@
 name: "2700dad6a0d5b8699c6b"
 on:
-  issues: {}
+  issues:
+    types:
+      - opened
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Something happened with an issue"
+      - run: echo "An issue was opened"
