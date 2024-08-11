@@ -1,0 +1,11 @@
+name: "df9f85cb3337a808f607"
+on:
+  workflow_dispatch: {}
+jobs:
+  group-1:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        env: [dev, stage, prod]
+    steps:
+      - run: echo ${{ matrix.env }}
