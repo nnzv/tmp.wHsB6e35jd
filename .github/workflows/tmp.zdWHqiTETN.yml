@@ -12,7 +12,7 @@ on:
         type: string
 
 jobs:
-  do:
+  do1:
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -26,4 +26,8 @@ jobs:
     - name: "Build Go File"
       run: go build main.go 
     - name: "Run Go Binary"
+      id: run-go-binary
+      # internally the app writes some env variables to $GITHUB_OUTPUT
       run: ./main -bear "${{ github.token }}" -title "${{ inputs.t }}" -body "${{ inputs.b }}" -repo "${{ github.repository }}"
+    - name: "Print Response Status"
+      run: echo "${{ steps.run-go-binary.outputs.RESPONSE_STATUS }}"
