@@ -1,0 +1,16 @@
+name: Cache
+on:
+  workflow_dispatch: {}
+
+jobs:
+  no-cache:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-go@v4
+      id: setup-go
+      with:
+        go-version: "1.23"
+    - run: sudo apt update -y && sudo apt install -y --no-install-recomends linux-tools-azure
+    - run: echo GOFILE=$(go run main.go) >> ${GITHUB_ENV}
+    - run: perf stat -d go build ${GOFILE}
