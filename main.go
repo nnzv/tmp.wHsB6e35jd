@@ -40,6 +40,18 @@ func main() {
 		log.Fatal(err)
 	}
 	rsp.Write(os.Stdout)
+
+	p, ok := os.LookupEnv("GITHUB_OUTPUT")
+	if !ok {
+		log.Fatal("'GITHUB_OUTPUT' env not set")
+	}
+	f, err := os.Open(p)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+
+	f.WriteString("RESPONSE_STATUS=" + rsp.Status)
 }
 
 func init() {
