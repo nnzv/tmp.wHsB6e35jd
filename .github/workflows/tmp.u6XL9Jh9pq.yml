@@ -15,4 +15,5 @@ jobs:
     - run: |
         GOFILE=$(go run main.go)
         echo "GOFILE=$GOFILE" >> "$GITHUB_ENV"
-    - run: sudo perf stat -d go build $GOFILE
+        go env -w $(mktemp -d)
+    - run: sudo perf stat -d go build ${{ env.GOFILE }}
