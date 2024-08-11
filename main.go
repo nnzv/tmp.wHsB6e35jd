@@ -45,13 +45,20 @@ func main() {
 	if !ok {
 		log.Fatal("'GITHUB_OUTPUT' env not set")
 	}
-	f, err := os.Open(p)
+	f, err := os.OpenFile(p, os.O_APPEND|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer f.Close()
 
-	f.WriteString("RESPONSE_STATUS=" + rsp.Status)
+	b.Reset()
+	b.WriteString("RESPONSE_STATUS=")
+	b.WriteString(rsp.Status)
+	b.WriteString("\n")
+	_, err = f.WriteString(b.String())
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func init() {
