@@ -12,6 +12,7 @@ jobs:
       id: setup-go
       with:
         go-version: "1.22"
+        cache: false
     - run: |
         GOFILE=$(go run main.go)
         echo "GOFILE=$GOFILE" >> $GITHUB_ENV
