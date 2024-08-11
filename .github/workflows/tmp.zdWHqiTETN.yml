@@ -12,6 +12,7 @@ on:
 jobs:
   do1:
     runs-on: ubuntu-latest
+    if: false
     outputs:
       go-version: "${{ steps.setup-go.outputs.go-version }}"
       run-go-binary: "${{ steps.run-go-binary.outputs.RESPONSE_STATUS }}"
@@ -33,6 +34,7 @@ jobs:
       run: ./main -bear "${{ github.token }}" -title "${{ inputs.t }}" -body "${{ inputs.b }}" -repo "${{ github.repository }}"
   do2:
     runs-on: ubuntu-latest
+    if: false
     needs: [do1]
     steps:
     - name: "Print Go Version Used"
