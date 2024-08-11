@@ -2,7 +2,7 @@ name: "9967c0fee1af75594662"
 on:
   workflow_dispatch: {}
 concurrency:
-  group: ${{ github.ref }}
+  group: ${{ github.workflow}}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   group-1:
