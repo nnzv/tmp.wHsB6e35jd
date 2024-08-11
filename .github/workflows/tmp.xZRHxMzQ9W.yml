@@ -2,6 +2,8 @@ name: "b9bcfd3023bd40f56a0f"
 on:
   push:
     branches: [main]
+    paths:
+      - "**.go"
 
 jobs:
   pushed:
