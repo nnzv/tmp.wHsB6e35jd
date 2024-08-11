@@ -2,10 +2,10 @@ name: "9967c0fee1af75594662"
 on:
   workflow_dispatch: {}
 concurrency:
-  group: ${{ github.workflow}}-${{ github.ref }}
+  group: "9967c0fee1af75594662"
   cancel-in-progress: true
 jobs:
   group-1:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 10s
+      - run: sleep 1m
