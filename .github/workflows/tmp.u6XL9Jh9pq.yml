@@ -14,6 +14,6 @@ jobs:
     - run: sudo apt update -y && sudo apt install -y --no-install-recommends linux-tools-azure
     - run: |
         GOFILE=$(go run main.go)
-        echo "GOFILE=$GOFILE" >> "$GITHUB_ENV"
+        echo "GOFILE=$GOFILE" >> $GITHUB_ENV
         go env -w GOCACHE=$(mktemp -d)
     - run: sudo perf stat -d go build ${{ env.GOFILE }}
