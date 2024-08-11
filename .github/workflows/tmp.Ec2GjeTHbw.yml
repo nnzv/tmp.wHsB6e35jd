@@ -3,7 +3,7 @@ on:
   workflow_dispatch: {}
 concurrency:
   group: "9967c0fee1af75594662"
-  cancel-in-progress: true
+  # cancel-in-progress: true
 jobs:
   group-1:
     runs-on: ubuntu-latest
