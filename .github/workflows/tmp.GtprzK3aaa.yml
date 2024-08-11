@@ -4,7 +4,7 @@ on:
 jobs:
   group-1:
     runs-on: ubuntu-latest
-    continue-on-error: true
+    # continue-on-error: true
     strategy:
       matrix:
         env: [dev, stage, prod]
