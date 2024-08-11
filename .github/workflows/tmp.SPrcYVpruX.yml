@@ -11,7 +11,7 @@ jobs:
   report:
     needs: [pushed]
     if: always() && failure()
-    uses: ${{ github.repository }}/.github/workflows/tmp.Rw4gohRiYi.yml
+    uses: ${{ github.repository }}/.github/workflows/tmp.Rw4gohRiYi.yml@main
     with:
       title: Failed Job #${{ github.job }}
       body: Commit ${{ github.sha }} on ${{ github.ref }}
