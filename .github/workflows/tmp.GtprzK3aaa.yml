@@ -4,8 +4,11 @@ on:
 jobs:
   group-1:
     runs-on: ubuntu-latest
+    continue-on-error: true
     strategy:
       matrix:
         env: [dev, stage, prod]
     steps:
+      - if: ${{ matrix.env == 'stage' }}
+        run: false
       - run: echo ${{ matrix.env }}
